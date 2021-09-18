@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
+:root {
+  --max-page-size: 1020px;
+  --white: white;
+  --black: #000;
+  --yellow-400: #ffcd69;
+  --yellow-500: #fdce71;
+  --yellow-600: #e3b965;
+  --gray-400: #e0e0e0;
+  --gray-500: #cccccc;
+  --gray-600: #c9c9c9;
+  --gray-700: #b9b9b9;
+  --gray-800: #858585;
+  --gray-900: #797874;
+}
+
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -20,4 +37,10 @@ body {
   line-height: 1.75;
   color: var(--black);
   font-family: 'Roboto', sans-serif;
+}
+
+main {
+  margin: 0 auto 0 auto;
+  padding: 118px 212px 0 233px;
+  max-width: var(--max-page-size);
 }
