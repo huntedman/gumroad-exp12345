@@ -15,26 +15,28 @@ provider:
       statements:
         - Effect: Allow
           Action:
-            - dynamodb:Query
+            - dynamodb:Scan
             - dynamodb:PutItem
           Resource: 
             - Fn::Join:
               - ''
               - - 'arn:aws:dynamodb:us-east-1:'
                 - ${env:AWS_ACCOUNT}
-                - ':'
+                - ':table/'
                 - ${env:TABLE_NAME}
             - Fn::Join:
               - ''
               - - 'arn:aws:dynamodb:us-east-1:'
                 - ${env:AWS_ACCOUNT}
-                - ':'
+                - ':table/'
                 - ${env:TABLE_NAME}
                 - /*
 
 functions:
   GetReviews:
-    handler: api/reviews.get
+    handler: api/get-reviews.main
+    memorySize: 128
+    reservedConcurrency: 2
     events:
       - httpApi:
           method: GET
