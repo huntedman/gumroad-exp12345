@@ -1,0 +1,28 @@
+/* reset button styling */
+input,
+label,
+select,
+button,
+textarea,
+button,
+input[type='submit'],
+input[type='reset'] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.btn {
+  border-radius: 4px;
+  border: 1px solid var(--gray-500);
+  font-weight: 700;
+  color: var(--gray-900);
+  box-shadow: var(--shadow-xs);
+  font-size: var(--text-lg);
+  height: 3rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}

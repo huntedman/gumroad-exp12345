@@ -13,6 +13,7 @@
   --gray-700: #b9b9b9;
   --gray-800: #858585;
   --gray-900: #797874;
+  --shadow-xs: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 html {
