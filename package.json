@@ -11,12 +11,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "ulid": "^2.3.0"
   },
   "devDependencies": {
+    "aws-sdk": "^2.991.0",
     "connect-livereload": "^0.6.1",
     "livereload": "^0.9.3",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "serverless": "^2.59.0",
+    "serverless-bundle": "^5.0.2"
   },
   "nodemonConfig": {
     "ext": "js,html,css"

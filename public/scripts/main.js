@@ -21,7 +21,7 @@ const RatingController = () => {
     const input = document.createElement('input');
     input.setAttribute('id', inputId);
     input.className = 'hidden';
-    input.name = 'user-rating';
+    input.name = 'rating';
     input.type = 'radio';
     input.value = index;
     input.addEventListener('change', changeHandler);

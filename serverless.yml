@@ -1,0 +1,22 @@
+service: gumroad-exp12345
+
+useDotenv: true
+
+plugins:
+  - serverless-bundle
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  httpApi:
+    cors: true
+
+functions:
+  GetReviews:
+    handler: api/reviews.get
+    events:
+      - httpApi:
+          method: GET
+          path: /
+
