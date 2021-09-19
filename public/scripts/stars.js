@@ -32,3 +32,17 @@ const starGolden = `
   </linearGradient>
   </defs>
 `;
+
+const StarComponent = (isActive) => {
+  const boxWidth = 30;
+  const boxHeight = 30;
+
+  let svgElem = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svgElem.setAttributeNS(null, 'viewBox', '0 0 ' + boxWidth + ' ' + boxHeight);
+  svgElem.setAttributeNS(null, 'width', boxWidth);
+  svgElem.setAttributeNS(null, 'height', boxHeight);
+
+  svgElem.innerHTML = isActive ? starGolden : starGray;
+
+  return svgElem;
+};
