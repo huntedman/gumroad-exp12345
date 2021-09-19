@@ -47,11 +47,10 @@ const RatingController = () => {
   return ratingController;
 };
 
-const RatingView = ({ rating, className, id }) => {
+const RatingView = ({ rating, className }) => {
   const roundedRating = Math.round(parseInt(rating));
 
   const div = document.createElement('div');
-  div.setAttribute('id', id);
   div.className = className;
   div.style = 'transform: translate3d(1px, -1px, 0);';
 
