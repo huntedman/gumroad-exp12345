@@ -1,3 +1,9 @@
+:root {
+  --space-unit: 1rem;
+  --spacing-0: calc(0 * var(--space-unit));
+  --spacing-1: calc(0.3125 * var(--space-unit));
+}
+
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -41,4 +47,14 @@
 
 .ml-1 {
   margin-left: 5px;
+}
+
+.space-x-1 > * + * {
+  --space-x-reverse: 0;
+  margin-right: calc(var(--spacing-1) * var(--space-x-reverse));
+  margin-left: calc(var(--spacing-1) * calc(1 - var(--space-x-reverse)));
+}
+
+.w-full {
+  width: 100%;
 }
