@@ -2,15 +2,35 @@ service: gumroad-exp12345
 
 useDotenv: true
 
-plugins:
-  - serverless-bundle
-
 provider:
   name: aws
   runtime: nodejs12.x
   lambdaHashingVersion: 20201221
   httpApi:
     cors: true
+  environment: 
+    TABLE_NAME: ${env:TABLE_NAME}
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:PutItem
+          Resource: 
+            - Fn::Join:
+              - ''
+              - - 'arn:aws:dynamodb:us-east-1:'
+                - ${env:AWS_ACCOUNT}
+                - ':'
+                - ${env:TABLE_NAME}
+            - Fn::Join:
+              - ''
+              - - 'arn:aws:dynamodb:us-east-1:'
+                - ${env:AWS_ACCOUNT}
+                - ':'
+                - ${env:TABLE_NAME}
+                - /*
 
 functions:
   GetReviews:
@@ -19,4 +39,29 @@ functions:
       - httpApi:
           method: GET
           path: /
+  
+  PostReview:
+    handler: api/post-review.main
+    memorySize: 128
+    reservedConcurrency: 2
+    events:
+      - httpApi:
+          method: POST
+          path: /
+
+resources:
+  Resources:
+    UserReviewsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        BillingMode: PAY_PER_REQUEST
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        AttributeDefinitions:
+          - AttributeName: id # id of the review
+            AttributeType: S
+        Tags:
+          - Key: Name
+            Value: gumroad-exp12345-user-reviews
 
