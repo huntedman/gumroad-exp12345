@@ -16,20 +16,22 @@ module.exports.main = async (event) => {
   const rating = urlParams.get('rating');
   const review = urlParams.get('review');
 
-  await docClient.transactWrite({
-    TransactItems: [
-      {
-        Put: {
-          TableName: TABLE_NAME,
-          Item: {
-            id,
-            rating,
-            review,
+  await docClient
+    .transactWrite({
+      TransactItems: [
+        {
+          Put: {
+            TableName: TABLE_NAME,
+            Item: {
+              id,
+              rating,
+              review,
+            },
           },
         },
-      },
-    ],
-  });
+      ],
+    })
+    .promise();
 
   return {
     statusCode: 200,

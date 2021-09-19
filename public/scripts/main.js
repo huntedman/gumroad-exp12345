@@ -144,7 +144,7 @@ renderComponent('rating_component', RatingController());
 renderComponent('final_rating_component', FinalRatingComponent());
 
 const fetchReviews = fetch(
-  'https://6145ede638339400175fc775.mockapi.io/reviews'
+  'https://hjsb4f5ur0.execute-api.us-east-1.amazonaws.com/'
 )
   .then((response) => {
     return response.json();
