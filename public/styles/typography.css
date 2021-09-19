@@ -1,6 +1,7 @@
 :root {
   --base-font-size: 1rem;
   --text-lg: calc(1.0625 * var(--base-font-size));
+  --text-2xl: calc(2.75 * var(--base-font-size));
   --heading-one: calc(2.75 * var(--base-font-size));
 }
 
@@ -13,4 +14,9 @@ h2 {
 h1 {
   font-size: var(--heading-one);
   line-height: 52px;
+}
+
+.text-2xl {
+  font-size: var(--text-2xl);
+  line-height: 3.25rem;
 }

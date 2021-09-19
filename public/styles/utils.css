@@ -38,3 +38,7 @@
 .items-center {
   align-items: center;
 }
+
+.ml-1 {
+  margin-left: 5px;
+}
