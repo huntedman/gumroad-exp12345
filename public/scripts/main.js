@@ -122,19 +122,7 @@ const UserReviewComponent = (rating, review) => {
   return wrapper;
 };
 
-const UserRatingsList = () => {
-  const data = [
-    { rating: 4, review: 'book was full of fluff' },
-    { rating: 3, review: 'book was fluff' },
-    { rating: 4, review: 'book was amazing' },
-    { rating: 4, review: 'book was amazing' },
-    { rating: 4, review: 'book was amazing' },
-    { rating: 4, review: 'book was amazing' },
-    { rating: 4, review: 'book was amazing' },
-    { rating: 4, review: 'book was amazing' },
-    { rating: 4, review: 'book was amazing' },
-  ];
-
+const UserRatingsList = (data) => {
   const wrapper = document.createElement('div');
 
   wrapper.className = 'flex flex-col space-y-3';
@@ -154,4 +142,13 @@ function renderComponent(rootId, component) {
 
 renderComponent('rating_component', RatingController());
 renderComponent('final_rating_component', FinalRatingComponent());
-renderComponent('user_ratings_list', UserRatingsList());
+
+const fetchReviews = fetch(
+  'https://6145ede638339400175fc775.mockapi.io/reviews'
+)
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    renderComponent('user_ratings_list', UserRatingsList(data));
+  });
