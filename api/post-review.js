@@ -34,9 +34,9 @@ module.exports.main = async (event) => {
     .promise();
 
   return {
-    statusCode: 200,
+    statusCode: 301,
     headers: {
-      'Content-Type': 'application/json',
+      Location: `https://gumroad-exp12345.herokuapp.com/`,
     },
     body: JSON.stringify({
       message: 'Done!',
