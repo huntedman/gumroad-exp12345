@@ -66,6 +66,10 @@
   width: 100%;
 }
 
+.h-full {
+  height: 100%;
+}
+
 .divider {
   border-top: 1px solid var(--gray-700);
 }
