@@ -83,6 +83,69 @@ const FinalRatingComponent = () => {
   return wrapper;
 };
 
+const UserReviewComponent = (rating, review) => {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'flex flex-row items-center';
+
+  const userReviewContainer = document.createElement('div');
+  userReviewContainer.className = 'text-xl';
+  userReviewContainer.style = 'transform: translateY(1px);';
+
+  const scoreSpan = document.createElement('span');
+  scoreSpan.className = 'font-bold';
+
+  const reviewSpan = document.createElement('span');
+  reviewSpan.className = 'text-gray-800 font-light';
+  reviewSpan.style = 'letter-spacing: 0.2px;';
+
+  const commaSpan = document.createElement('span');
+  commaSpan.className = 'font-light text-gray-800';
+  commaSpan.innerText = ', ';
+
+  scoreSpan.innerText = rating;
+  scoreSpan.appendChild(commaSpan);
+  reviewSpan.innerText = review;
+
+  userReviewContainer.appendChild(scoreSpan);
+  userReviewContainer.appendChild(reviewSpan);
+
+  const ratingView = RatingView({
+    rating,
+    className: 'flex flex-row space-x-1',
+  });
+
+  ratingView.style = 'margin-right: 29px;';
+
+  wrapper.appendChild(ratingView);
+  wrapper.appendChild(userReviewContainer);
+
+  return wrapper;
+};
+
+const UserRatingsList = () => {
+  const data = [
+    { rating: 4, review: 'book was full of fluff' },
+    { rating: 3, review: 'book was fluff' },
+    { rating: 4, review: 'book was amazing' },
+    { rating: 4, review: 'book was amazing' },
+    { rating: 4, review: 'book was amazing' },
+    { rating: 4, review: 'book was amazing' },
+    { rating: 4, review: 'book was amazing' },
+    { rating: 4, review: 'book was amazing' },
+    { rating: 4, review: 'book was amazing' },
+  ];
+
+  const wrapper = document.createElement('div');
+
+  wrapper.className = 'flex flex-col space-y-3';
+
+  data.forEach((element) => {
+    wrapper.appendChild(UserReviewComponent(element.rating, element.review));
+  });
+
+  return wrapper;
+};
+
 function renderComponent(rootId, component) {
   const rootElement = document.getElementById(rootId);
   component.setAttribute('id', rootId);
@@ -91,3 +154,4 @@ function renderComponent(rootId, component) {
 
 renderComponent('rating_component', RatingController());
 renderComponent('final_rating_component', FinalRatingComponent());
+renderComponent('user_ratings_list', UserRatingsList());
