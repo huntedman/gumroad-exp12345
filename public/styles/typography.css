@@ -1,8 +1,10 @@
 :root {
   --base-font-size: 1rem;
   --text-lg: calc(1.0625 * var(--base-font-size));
+  --text-xl: calc(1.25 * var(--base-font-size));
   --text-2xl: calc(2.75 * var(--base-font-size));
   --heading-one: calc(2.75 * var(--base-font-size));
+  --heading-two: calc(1.75 * var(--base-font-size));
 }
 
 h1,
@@ -16,7 +18,33 @@ h1 {
   line-height: 52px;
 }
 
+h2 {
+  font-size: var(--heading-two);
+  line-height: 32.81px;
+}
+
+.text-xl {
+  font-size: var(--text-xl);
+  line-height: 23.44px;
+}
+
 .text-2xl {
   font-size: var(--text-2xl);
   line-height: 3.25rem;
+}
+
+.text-gray-800 {
+  color: var(--gray-800);
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-bold {
+  font-weight: 700;
 }
