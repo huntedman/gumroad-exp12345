@@ -69,3 +69,11 @@
 .divider {
   border-top: 1px solid var(--gray-700);
 }
+
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
