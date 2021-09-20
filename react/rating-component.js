@@ -1,5 +1,26 @@
 'use strict';
 
+// copied from https://overreacted.io/making-setinterval-declarative-with-react-hooks/
+function useInterval(callback, delay) {
+  const savedCallback = React.useRef();
+
+  // Remember the latest callback.
+  React.useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+
+  // Set up the interval.
+  React.useEffect(() => {
+    function tick() {
+      savedCallback.current();
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
+}
+
 // Allows to easily display a HTMLElement in a React hierarchy
 function VanillaComponentReactWrapper(props) {
   const containerRef = React.useRef();
@@ -15,20 +36,23 @@ function VanillaComponentReactWrapper(props) {
 
 function FinalRatingComponent() {
   const [rating, setRating] = React.useState(0);
+  const [interval, setInverval] = React.useState(0);
 
-  React.useEffect(() => {
-    const fetchRating = async () => {
-      await fetch(
-        'https://hjsb4f5ur0.execute-api.us-east-1.amazonaws.com/rating'
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          setRating(() => data);
-        });
-    };
+  useInterval(async () => {
+    setInverval(() => 10000);
 
-    fetchRating();
-  }, []);
+    console.log('Polling for data');
+
+    const rating = await fetch(
+      'https://hjsb4f5ur0.execute-api.us-east-1.amazonaws.com/rating'
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        return data;
+      });
+
+    setRating(() => rating);
+  }, interval);
 
   return (
     <div className="flex flex-row">
