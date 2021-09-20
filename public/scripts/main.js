@@ -47,11 +47,11 @@ const RatingController = () => {
   return ratingController;
 };
 
-const RatingView = ({ rating, className }) => {
+const RatingView = ({ rating }) => {
   const roundedRating = Math.round(parseInt(rating));
 
   const div = document.createElement('div');
-  div.className = className;
+  div.className = 'flex flex-row space-x-1';
   div.style = 'transform: translate3d(1px, -1px, 0);';
 
   for (let index = 0; index < 5; index++) {
@@ -59,26 +59,6 @@ const RatingView = ({ rating, className }) => {
     div.appendChild(star);
   }
   return div;
-};
-
-const FinalRatingComponent = (rating) => {
-  const wrapper = document.createElement('div');
-  wrapper.className = 'flex flex-row';
-
-  const scoreSpan = document.createElement('span');
-  const ratingView = RatingView({
-    rating,
-    className: 'flex flex-row space-x-1',
-  });
-
-  scoreSpan.style = 'margin-right: 24px;';
-  scoreSpan.innerText = rating;
-  scoreSpan.className = 'text-3xl ml-1';
-
-  wrapper.appendChild(scoreSpan);
-  wrapper.appendChild(ratingView);
-
-  return wrapper;
 };
 
 const UserReviewComponent = (rating, review) => {
