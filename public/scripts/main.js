@@ -61,9 +61,7 @@ const RatingView = ({ rating, className }) => {
   return div;
 };
 
-const FinalRatingComponent = () => {
-  const rating = 3.5;
-
+const FinalRatingComponent = (rating) => {
   const wrapper = document.createElement('div');
   wrapper.className = 'flex flex-row';
 
@@ -141,7 +139,6 @@ function renderComponent(rootId, component) {
 }
 
 renderComponent('rating_component', RatingController());
-renderComponent('final_rating_component', FinalRatingComponent());
 
 const fetchReviews = fetch(
   'https://hjsb4f5ur0.execute-api.us-east-1.amazonaws.com/'
@@ -151,4 +148,14 @@ const fetchReviews = fetch(
   })
   .then((data) => {
     renderComponent('user_ratings_list', UserRatingsList(data));
+  });
+
+const fetchRating = fetch(
+  'https://hjsb4f5ur0.execute-api.us-east-1.amazonaws.com/rating'
+)
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    renderComponent('final_rating_component', FinalRatingComponent(data));
   });

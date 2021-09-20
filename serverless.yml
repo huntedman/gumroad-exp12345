@@ -17,6 +17,7 @@ provider:
           Action:
             - dynamodb:Scan
             - dynamodb:PutItem
+            - dynamodb:Query
           Resource: 
             - Fn::Join:
               - ''
@@ -50,6 +51,15 @@ functions:
       - httpApi:
           method: POST
           path: /
+  
+  GetRating:
+    handler: api/get-rating.main
+    memorySize: 128
+    reservedConcurrency: 2
+    events:
+      - httpApi:
+          method: GET
+          path: /rating
 
 resources:
   Resources:
@@ -60,8 +70,12 @@ resources:
         KeySchema:
           - AttributeName: id
             KeyType: HASH
+          - AttributeName: postedAt
+            KeyType: RANGE
         AttributeDefinitions:
-          - AttributeName: id # id of the review
+          - AttributeName: id # id of the product
+            AttributeType: S
+          - AttributeName: postedAt # 
             AttributeType: S
         Tags:
           - Key: Name

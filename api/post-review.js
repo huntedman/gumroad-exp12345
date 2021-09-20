@@ -12,7 +12,10 @@ module.exports.main = async (event) => {
 
   let urlParams = new URLSearchParams(body);
 
-  const id = ulid.ulid();
+  const id = 'the_minimalist_entrepreneur';
+
+  const postedAt = new Date().toJSON();
+
   const rating = urlParams.get('rating');
   const review = urlParams.get('review');
 
@@ -24,6 +27,7 @@ module.exports.main = async (event) => {
             TableName: TABLE_NAME,
             Item: {
               id,
+              postedAt,
               rating,
               review,
             },
