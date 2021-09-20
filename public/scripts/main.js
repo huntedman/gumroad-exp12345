@@ -149,13 +149,3 @@ const fetchReviews = fetch(
   .then((data) => {
     renderComponent('user_ratings_list', UserRatingsList(data));
   });
-
-const fetchRating = fetch(
-  'https://hjsb4f5ur0.execute-api.us-east-1.amazonaws.com/rating'
-)
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    renderComponent('final_rating_component', FinalRatingComponent(data));
-  });
