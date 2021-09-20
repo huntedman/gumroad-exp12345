@@ -8,6 +8,7 @@ module.exports.main = async (event) => {
   let params = {
     TableName: TABLE_NAME,
     KeyConditionExpression: '#id = :id',
+    ScanIndexForward: false,
     ExpressionAttributeNames: {
       '#id': 'id',
     },
