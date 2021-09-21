@@ -1,5 +1,4 @@
 const AWS = require('aws-sdk');
-const ulid = require('ulid');
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 

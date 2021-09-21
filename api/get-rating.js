@@ -15,7 +15,7 @@ module.exports.main = async (event) => {
 
   if (result.Count) {
     result.Items.forEach((element) => {
-      rating += parseInt(element.rating);
+      rating += parseFloat(element.rating);
     });
     rating = (rating / result.Count).toFixed(1);
   }
