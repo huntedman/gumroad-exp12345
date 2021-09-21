@@ -2,6 +2,10 @@
   display: none;
 }
 
+.star-input input:disabled + label {
+  cursor: default;
+}
+
 .star-input label {
   display: block;
   height: 30px;

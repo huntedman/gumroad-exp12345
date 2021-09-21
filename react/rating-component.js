@@ -56,11 +56,18 @@ function FinalRatingComponent() {
 
   return (
     <div className="flex flex-row">
-      <span className="text-3xl ml-1" style={{ marginRight: '24px' }}>
+      <span
+        className="text-3xl ml-1"
+        style={{
+          marginLeft: '10px',
+          marginRight: '20px',
+          transform: 'translateY(2px)',
+        }}
+      >
         {rating}
       </span>
       <VanillaComponentReactWrapper>
-        {RatingView({ rating: rating })}
+        {RatingController({ rating: rating, name: 'FinalRating' })}
       </VanillaComponentReactWrapper>
     </div>
   );

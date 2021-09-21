@@ -48,10 +48,13 @@ function FinalRatingComponent() {
   }, /*#__PURE__*/React.createElement("span", {
     className: "text-3xl ml-1",
     style: {
-      marginRight: '24px'
+      marginLeft: '10px',
+      marginRight: '20px',
+      transform: 'translateY(2px)'
     }
-  }, rating), /*#__PURE__*/React.createElement(VanillaComponentReactWrapper, null, RatingView({
-    rating: rating
+  }, rating), /*#__PURE__*/React.createElement(VanillaComponentReactWrapper, null, RatingController({
+    rating: rating,
+    name: 'FinalRating'
   })));
 }
 
