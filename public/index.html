@@ -6,10 +6,11 @@
     <meta name="description" content="Just for a coding challenge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+		<link rel="stylesheet" href="styles/button.css">
     <link rel="stylesheet" href="styles/main.css">
 		<link rel="stylesheet" href="styles/utils.css">
 		<link rel="stylesheet" href="styles/typography.css">
-		<link rel="stylesheet" href="styles/button.css">
+		<link rel="stylesheet" href="styles/ratings.css">
   </head>
 	<body>
 		<div id="overlay" class="overlay invisible">
@@ -18,7 +19,28 @@
 					<form class="h-full flex flex-col justify-between" action="https://hjsb4f5ur0.execute-api.us-east-1.amazonaws.com/" method="POST">
 						<h1>What's your rating?</h1>
 						<span class="text-2xl">Rating</span>
-						<div id="rating_component"></div>
+						<div class="star-input flex flex-row-reverse" style="transform: translateX(-5px);">
+								<input type="radio" id="rating10" name="rating" value="5" />
+								<label for="rating10" title="5 stars"></label>
+								<input type="radio" id="rating9" name="rating" value="4.5" />
+								<label for="rating9" title="4.5 stars"></label>
+								<input type="radio" id="rating8" name="rating" value="4" />
+								<label for="rating8" title="4 stars"></label>
+								<input type="radio" id="rating7" name="rating" value="3.5"/>
+								<label for="rating7" title="3.5 stars"></label>
+								<input type="radio" id="rating6" name="rating" value="3"/>
+								<label for="rating6" title="3 stars"></label>
+								<input type="radio" id="rating5" name="rating" value="2.5" />
+								<label for="rating5" title="2.5 stars"></label>
+								<input type="radio" id="rating4" name="rating" value="2" />
+								<label for="rating4" title="2 stars"></label>
+								<input type="radio" id="rating3" name="rating" value="1.5" />
+								<label for="rating3" title="1.5 stars"></label>
+								<input type="radio" id="rating2" name="rating" value="1" />
+								<label for="rating2" title="1 star"></label>
+								<input type="radio" id="rating1" name="rating" value="0.5" />
+								<label for="rating1" title="0.5 stars"></label>
+						</div>
 						<span class="text-2xl">Review</span>
 						<input name="review" placeholder="Start typing...." type="text" class="text-xl" />
 						<button style="width: 218px;" class="btn">Submit review</button>

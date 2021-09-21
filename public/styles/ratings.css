@@ -1,0 +1,24 @@
+.star-input input {
+  display: none;
+}
+
+.star-input label {
+  display: block;
+  height: 30px;
+  width: 15px;
+}
+
+.star-input label:nth-child(4n + 2) {
+  background: url('../icons/star-inactive.svg') no-repeat;
+  transform: scaleX(-1);
+}
+
+.star-input label:nth-child(4n + 4) {
+  background: url('../icons/star-inactive.svg') no-repeat;
+  margin-left: 5px;
+}
+
+.star-input input:checked + label,
+.star-input input:checked ~ label {
+  background: url('../icons/star-active.svg') no-repeat;
+}

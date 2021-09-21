@@ -41,6 +41,12 @@
 .justify-evenlt {
   justify-content: space-evenly;
 }
+.flex-row-reverse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
 
 .items-center {
   align-items: center;
